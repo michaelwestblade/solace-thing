@@ -68,16 +68,16 @@ export default function Home() {
           <tr>Phone Number</tr>
         </thead>
         <tbody>
-          {filteredAdvocates.map((advocate) => {
+          {filteredAdvocates.map((advocate, advocateIndex) => {
             return (
-              <tr key={advocate.id}>
+              <tr key={`advocate-${advocate.id}`}>
                 <td>{advocate.firstName}</td>
                 <td>{advocate.lastName}</td>
                 <td>{advocate.city}</td>
                 <td>{advocate.degree}</td>
                 <td>
-                  {advocate.specialties.map((s, index) => (
-                    <div key={index}>{s}</div>
+                  {advocate.specialties.map((s, specialtyIndex) => (
+                    <div key={`${s}-${advocateIndex}-${specialtyIndex}`}>{s}</div>
                   ))}
                 </td>
                 <td>{advocate.yearsOfExperience}</td>
