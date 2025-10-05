@@ -19,18 +19,17 @@ export default function Home() {
 
   const onChange = (e: { target: { value: any; }; }) => {
     const searchTerm = e.target.value;
-
-      document.getElementById("search-term")!.innerHTML = searchTerm;
+    const lowercaseSearchTerm = searchTerm.toLowerCase();
 
     console.log("filtering advocates...");
     const filteredAdvocates = advocates.filter((advocate) => {
       return (
-        advocate.firstName.includes(searchTerm) ||
-        advocate.lastName.includes(searchTerm) ||
-        advocate.city.includes(searchTerm) ||
-        advocate.degree.includes(searchTerm) ||
-        advocate.specialties.includes(searchTerm) ||
-        advocate.yearsOfExperience && advocate.yearsOfExperience.toString().includes(searchTerm)
+        advocate.firstName.toLowerCase().includes(lowercaseSearchTerm) ||
+        advocate.lastName.toLowerCase().includes(lowercaseSearchTerm) ||
+        advocate.city.toLowerCase().includes(lowercaseSearchTerm) ||
+        advocate.degree.toLowerCase().includes(lowercaseSearchTerm) ||
+        advocate.specialties.map(s => s.toLowerCase()).some(s => s.includes(lowercaseSearchTerm)) ||
+        advocate.yearsOfExperience && advocate.yearsOfExperience.toString().includes(lowercaseSearchTerm)
       );
     });
 
@@ -42,7 +41,7 @@ export default function Home() {
     setFilteredAdvocates(advocates);
   };
 
-  return filteredAdvocates.length > 0 && (
+  return (
     <main style={{ margin: "24px" }}>
       <h1>Solace Advocates</h1>
       <br />

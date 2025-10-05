@@ -8,5 +8,4 @@ export interface Advocate {
     yearsOfExperience: number;
     phoneNumber: number;
     createdAt: Date;
-    payload: String[];
 }
