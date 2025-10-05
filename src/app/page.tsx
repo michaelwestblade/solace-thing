@@ -59,13 +59,27 @@ export default function Home() {
       <br />
       <table>
         <thead>
-          <tr>First Name</tr>
-          <tr>Last Name</tr>
-          <tr>City</tr>
-          <tr>Degree</tr>
-          <tr>Specialties</tr>
-          <tr>Years of Experience</tr>
-          <tr>Phone Number</tr>
+          <tr>
+              <td>First Name</td>
+          </tr>
+          <tr>
+              <td>Last Name</td>
+          </tr>
+          <tr>
+              <td>City</td>
+          </tr>
+          <tr>
+              <td>Degree</td>
+          </tr>
+          <tr>
+              <td>Specialties</td>
+          </tr>
+          <tr>
+              <td>Years of Experience</td>
+          </tr>
+          <tr>
+              <td>Phone Number</td>
+          </tr>
         </thead>
         <tbody>
           {filteredAdvocates.map((advocate, advocateIndex) => {
